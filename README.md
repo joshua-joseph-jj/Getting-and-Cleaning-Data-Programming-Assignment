@@ -6,7 +6,19 @@ assignment. In addition, I will share line by line what is taking place in my R 
 I have done my best to ensure that the script produces a tidy data text file as described in the Coursera lectures and programming assignment instructions. The resulting data set is tidy because each variable has its own unique name with no duplicates,
 each variable has its own column, is human readable with no capital letters, blank spaces, underscores, commas, periods, etc.,
 each observation is in its own column, and the activity numbers have been converted from numbers to activity names for easy 
-human interpretation and analysis. Let’s begin describing the code
+human interpretation and analysis. 
+
+Please know that the R code satisfies all 5 requirements in the following order: 
+
+3. Uses descriptive activity names to name the activities in the data set
+4. Appropriately labels the data set with descriptive variable names
+1. Merges the training and test sets to create one data set
+2. Extracts only the measurements on the mean and standard deviation for each measurement
+5. From the data set in step 4, creates a second, independent tidy data set with the average
+   of each variable for each activity and each subject
+
+
+Let’s begin describing the code:
 
 
 
