@@ -138,7 +138,7 @@ run_analysis <- function(){
         participant_activity_obs <- bind_cols(participant_activity, z_x_test_train_stack)
         
         
-#       Convert the column "participantnumber" to the Factor data type for later analisys
+#       Convert the column "participantnumber" to the Factor data type for later analysis
          
         participant_activity_obs$participantnumber <- as.factor(participant_activity_obs$participantnumber) 
         
