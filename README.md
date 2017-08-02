@@ -25,30 +25,30 @@ Lines 59-60:	We stack “subject_test.txt” and “subject_train.txt” using b
               We call names() to name the column “participantnumber”
 
 Line 63:	We use bind_rows() to stack all of the observational data together. Again, keeping consistency, we bind the test data first,
-          then training data. “X_test.txt”, “X_train.txt”.
+          then training data. “X_test.txt”, “X_train.txt”
 
 Line 69:	This is where we load in the features data, “Features.txt”. We have been reading in the data using read_table() because it 
-          imports the data as a “tibble” which allows the execution of the code to run significantly faster.
+          imports the data as a “tibble” which allows the execution of the code to run significantly faster
 
-Line 79:	Here we begin making the feature names tidy by converting all the feature names to lowercase text.
+Line 79:	Here we begin making the feature names tidy by converting all the feature names to lowercase text
 
 Line 84: 	We begin making the feature names human readable by replacing the first occurrence of the letter “t” in the 
           feature name with the word “time”. This helps the end user of the data to understand what each variable is measuring
 
 Lines 95-114:	Continue tidying the data by removing all special characters (commas, parenthesis, colons, underscores, spaces, etc.) 
-              We also continue to build out the feature names, making them human readable by fleshing out any abbreviations ie. “acc” turns into “acceleration”, “gyro” turns into ”gyroscope”.  
+              We also continue to build out the feature names, making them human readable by fleshing out any abbreviations ie. “acc” turns into “acceleration”, “gyro” turns into ”gyroscope”  
 
 Line 123:	Now that the features have been made tidy and descriptive, each having its own unique name, we are ready to 
-          “clip” it on to the top of the dataset, assigning the feature names as column names to the X_test, X_train combined data set.
+          “clip” it on to the top of the dataset, assigning the feature names as column names to the X_test, X_train combined data set
 
 Line 128:	Here we continue binding our data frames together. We call bind_cols() to attach the “participant” column 
-          data frame to the “activity” data frame. 
+          data frame to the “activity” data frame 
 
 Line 138: In this line of code we finally connect all of our data frames together “participantnumber”, ‘activityname”, “featurenames…”
 
-Line 143:	Convert column two, “participantnumber”, from numeric into data type factor for later sorting and analysis.
+Line 143:	Convert column two, “participantnumber”, from numeric into data type factor for later sorting and analysis
 
-Lines 151-153:	This is where we subset the data/features that only contain measurements of the mean and standard deviation.
+Lines 151-153:	This is where we subset the data/features that only contain measurements of the mean and standard deviation
 
 Lines: 158-159:	Arrange the data frame by “participantnumber” and “activityname”
 
@@ -58,6 +58,6 @@ Line 168:	Here, we call the aggregate() function in order to take the mean measu
 Line 172:	Finally, we export our tidy data set, which can be utilized for further analysis. The newly created data set meets the criteria 
           of tidy data  because each variable has its own column, with one observation per row. In addition, the data set follows the 
           coursera lecture suggestions of tidy data including having all the variable names lowerase with no spacesor special characters.
-          In addition, each variable has its own unique name with no duplicates.
+          In addition, each variable has its own unique name with no duplicates
     
 
