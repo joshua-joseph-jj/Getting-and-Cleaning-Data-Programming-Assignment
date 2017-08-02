@@ -6,7 +6,7 @@ run_analysis <- function(){
         
         
         
-#       Set the working dorectory for the R script
+#       Set the working directory for the R script
         
         
         setwd("C:/Users/JJ/Documents/coursera/data/UCI_HAR_Dataset/master_data")
@@ -49,8 +49,8 @@ run_analysis <- function(){
                 gsub("6","laying",.) 
         
         
-        # Begin to combine the tidy data frames together, giving them descriptive
-        # column names that are human readable
+#         Begin to combine the tidy data frames together, giving them descriptive
+#         column names that are human readable
          
          z_y_test_train_stack <- bind_rows(y_test.txt,y_train.txt)
          names(z_y_test_train_stack) <- c("activityname") 
@@ -79,14 +79,14 @@ run_analysis <- function(){
         features.txt_AllLower <- sapply(features.txt, tolower) 
                                  
         
-#       Begin makin the feature names human readable
+#       Begin making the feature names human readable
         
         features.txt_AllLower_1 <- sub("t","time", features.txt_AllLower)
         
-        # Remove all special characters from the feature names, making it 
-        # Tidy "(" "." "," ")" etc. Continue making the feature data set Tidy by 
-        # giving the features unique and descriptive names that are fully human 
-        # readable
+#       Remove all special characters from the feature names, making it 
+#       Tidy "(" "." "," ")" etc. Continue making the feature data set Tidy by 
+#       giving the features unique and descriptive names that are fully human 
+#       readable
         
         
         ### The folowing line of code completes "part 4" of the assignment:
@@ -116,20 +116,20 @@ run_analysis <- function(){
                 
                 
                 
-        # Now that all the features have descriptive and unique variable names,
-        # we can "clip" them on to the main observational data frame and use
-        # them as column (feature) names
+#       Now that all the features have descriptive and unique variable names,
+#       we can "clip" them on to the main observational data frame and use
+#       them as column (feature) names
         
         colnames(z_x_test_train_stack) <- c(features.txt_AllLowerTidy)
         
         
-        # "Clip" the participant number and activity name data frames together
+#       "Clip" the participant number and activity name data frames together
         
         participant_activity <- bind_cols(z_subject_test_train_stack,z_y_test_train_stack)
         
         
-        # "Clip" the participant number and activity name data frame to the
-        # main data frame that contains all of the observational data.
+#       "Clip" the participant number and activity name data frame to the
+#       main data frame that contains all of the observational data.
         
         
         ### The following line of code completes "part 1" of the assignment: Merge
@@ -138,7 +138,7 @@ run_analysis <- function(){
         participant_activity_obs <- bind_cols(participant_activity, z_x_test_train_stack)
         
         
-        # Convert the column "participantnumber" to the Factor data type for later analisys
+#       Convert the column "participantnumber" to the Factor data type for later analisys
          
         participant_activity_obs$participantnumber <- as.factor(participant_activity_obs$participantnumber) 
         
