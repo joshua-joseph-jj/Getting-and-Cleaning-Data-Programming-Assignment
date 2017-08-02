@@ -3,8 +3,7 @@ Run_analysis.R  ReadMe
 Hello, in this ReadMe file I will describe the contents of the files contained within my github repository for this weeks programming 
 assignment. In addition, I will share line by line what is taking place in my R script, “run_analysis”.
 
-I have done my best to ensure that the script produces a tidy data set as described in the Coursera lectures and programming assignment
-instructions. The resulting data set is tidy because each variable has its own unique name with no duplicates,
+I have done my best to ensure that the script produces a tidy data text file as described in the Coursera lectures and programming assignment instructions. The resulting data set is tidy because each variable has its own unique name with no duplicates,
 each variable has its own column, is human readable with no capital letters, blank spaces, underscores, commas, periods, etc.,
 each observation is in its own column, and the activity numbers have been converted from numbers to activity names for easy 
 human interpretation and analysis. Let’s begin describing the code
