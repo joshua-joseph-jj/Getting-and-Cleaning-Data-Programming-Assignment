@@ -1,4 +1,4 @@
-## Getting and Cleaning Data Orogramming Assignment
+## Getting and Cleaning Data programming Assignment
 
 ### Run_analysis.R  ReadMe
 
