@@ -9,7 +9,9 @@ The names of the original features have been processed to conform to the princip
 
 ### Complete List of Feature Names
 "1timebodyaccelerationmeanvaluex"
+
 "2timebodyaccelerationmeanvaluey"
+
 "3timebodyaccelerationmeanvaluez"
 "41timegravityaccelerationmeanvaluex"
 "42timegravityaccelerationmeanvaluey"
