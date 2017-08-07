@@ -1,11 +1,12 @@
 ## Code Book: Getting and Cleaning Data Programming Assignment
 
 ### Tidydata.txt
-The file “tidydata.txt” contains the mean measurements of selected features provided in the original data set which can be found at the [UCI Machine Learning Repository](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip). From the original dataset, only features that pertained to measurements of the mean and standard deviation were selected for analysis and processing.
-Tidydata.txt conforms to the principles of tidy data because all variables have one column with one observation per row. In addition, each variable has its own unique name that is fully human readable.
+The file “tidydata.txt” contains only data that pertains to measurements of the mean and standard deviation taken from the Samsung Galaxy Smart Phone data set. The mean of these values were taken to create the tidy data set found in this repository. The original data set  can be found at the [UCI Machine Learning Repository](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip). 
+
+"Tidydata.txt" conforms to the principles of tidy data because all variables have one column with one observation per row.
  
- ### Tidying the Feature Names 
-The names of the original features have been processed to conform to the principles of tidy data. Each feature has its own unique name (including unique feature number, listed at the beginning of each feature name), all abbreviations have been expanded upon ie. “t” = “time”, “acc” = “acceleration”, “f” = fastfouriertransform etc.
+### Tidying the Feature Names 
+The names of the original features have been processed to conform to the principles of tidy data. Each feature has its own unique name. All abbreviations have been expanded upon ie. “t” = “time”, “acc” = “acceleration”, “f” = fastfouriertransform etc.
 
 ### Complete List of Feature Names
 "timebodyaccelerationmeanvaluex"
