@@ -1,4 +1,4 @@
-run_analysis <- function(){
+
         
         # Check to see if the required packages are installed and loaded     
         
@@ -22,8 +22,8 @@ run_analysis <- function(){
         }
         library("stringr")
         
-       
-        # Read in all of the data. The following files must be located in the working directory 
+        
+        # Read in all of the data. 
         
         subject_test.txt <- read_table("subject_test.txt", col_names = FALSE)
         subject_train.txt <- read_table("subject_train.txt", col_names = FALSE)
@@ -61,16 +61,16 @@ run_analysis <- function(){
         
         # Begin to combine the data frames together, giving them descriptive
         # column names that are human readable
-         
-         z_y_test_train_stack <- bind_rows(y_test.txt,y_train.txt)
-         names(z_y_test_train_stack) <- c("activityname") 
-         
-         
-         z_subject_test_train_stack <- bind_rows(subject_test.txt,subject_train.txt)
-         names(z_subject_test_train_stack) <- c("participantnumber") 
-         
-         
-         z_x_test_train_stack <- bind_rows(X_test.txt,X_train.txt)
+        
+        z_y_test_train_stack <- bind_rows(y_test.txt,y_train.txt)
+        names(z_y_test_train_stack) <- c("activityname") 
+        
+        
+        z_subject_test_train_stack <- bind_rows(subject_test.txt,subject_train.txt)
+        names(z_subject_test_train_stack) <- c("participantnumber") 
+        
+        
+        z_x_test_train_stack <- bind_rows(X_test.txt,X_train.txt)
         
         # continue making the feature data Tidy
         
@@ -80,7 +80,7 @@ run_analysis <- function(){
         # "character"
         
         features.txt_AllLower <- sapply(features.txt, tolower) 
-                                 
+        
         
         # Begin making the feature names human readable
         
@@ -97,10 +97,10 @@ run_analysis <- function(){
                 gsub("\\(","",.) %>%
                 gsub("\\)","",.) %>%
                 gsub(" ","",.) %>%
-               
-        
-                        
-        ### STEP 4: Appropriately label the data set with descriptive variable names ###
+                
+                
+                
+                ### STEP 4: Appropriately label the data set with descriptive variable names ###
                 
                 gsub("acc","acceleration",.) %>%
                 gsub("gyro","gyroscope",.) %>%
@@ -116,29 +116,29 @@ run_analysis <- function(){
                 gsub("iqr","interquartilerange",.) %>%
                 gsub("entropy","signalentropy",.) %>%
                 gsub("arcoeff","autoregressioncoefficients",.)  
-                
+        
         # Now that all the features have descriptive and unique variable names,
         # we can bind them on to the main observational data frame and use
-        # them as column (feature) names
+        # them as column (feature) names. In addition, we will remove any numeric values from the feature names
         
         colnames(z_x_test_train_stack) <- c(features.txt_AllLowerTidy)
-        
+        names(z_x_test_train_stack) <- gsub("[[:digit:]]", replacement = "", x = names(z_x_test_train_stack))
         # Bind the participant number and activity name data frames together
         
         participant_activity <- bind_cols(z_subject_test_train_stack,z_y_test_train_stack)
-        
+       
         # Bind the participant number and activity name data frame to the
         # main data frame that contains all of the observational data.
         
         
         
         ### STEP 1: Merge the training and test sets to create one data set ###
-       
+        
         participant_activity_obs <- bind_cols(participant_activity, z_x_test_train_stack)
         
         
         # Convert the column "participantnumber" to the Factor data type for later analysis
-         
+        
         participant_activity_obs$participantnumber <- as.factor(participant_activity_obs$participantnumber) 
         
         # Begin extracting only the columns that are needed for the analysis  
@@ -146,18 +146,18 @@ run_analysis <- function(){
         participant_activity_obs_avg_sd_selected <- participant_activity_obs %>%
                 select(contains("participantnumber"), contains("activityname"),
                        
-        
-        
-        ### STEP 2: extract only the measurements on the mean and standard deviation 
-        ### for each measurement ###
-        
-                contains("mean"), contains("standarddeviation"))
+                       
+                       
+                       ### STEP 2: extract only the measurements on the mean and standard deviation 
+                       ### for each measurement ###
+                       
+                       contains("mean"), contains("standarddeviation"))
         
         
         # To add to the tidyness, group the data set by columns "participantnumber" and "activity" 
         
         participant_activity_obs_avg_sd_selected_grouped <- participant_activity_obs_avg_sd_selected %>%
-               arrange(.,participantnumber,activityname) 
+                arrange(.,participantnumber,activityname) 
         
         
         
@@ -165,15 +165,12 @@ run_analysis <- function(){
         ### with the average of each variable for each activity and each subject ###
         
         participant_activity_obs_avg_sd_selected_grouped1 <- aggregate(.~ participantnumber + activityname ,participant_activity_obs_avg_sd_selected_grouped, mean)
-                
+        
         write.table(participant_activity_obs_avg_sd_selected_grouped1, file = "tidydataset.txt", row.names = FALSE)
         
         
         
         
         
-}
-
-
 
 
