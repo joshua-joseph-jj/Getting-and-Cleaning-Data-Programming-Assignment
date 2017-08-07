@@ -1,20 +1,29 @@
 run_analysis <- function(){
         
-# require(plyr,tidyverse,tidyr,stringr)        
+        # Check to see if the required packages are installed and loaded     
         
+        if (!require("plyr")){
+                install.packages("plyr")
+        }       
+        library("plyr")
         
+        if (!require("tidyverse")){
+                install.packages("tidyverse")
+        }
+        library("tidyverse")
         
+        if (!require("tidyr")){
+                install.packages("tidyr")
+        }
+        library("tidyr")
         
+        if (!require("stringr")){
+                install.packages("stringr")
+        }
+        library("stringr")
         
-#       Set the working directory for the R script
-        
-        
-        setwd("C:/Users/JJ/Documents/coursera/data/UCI_HAR_Dataset/master_data")
-        
-#       Read in all of the data. "Features.txt"
-#       will be imported later on in the code        
-
-        
+       
+        # Read in all of the data. 
         
         subject_test.txt <- read_table("subject_test.txt", col_names = FALSE)
         subject_train.txt <- read_table("subject_train.txt", col_names = FALSE)
@@ -22,14 +31,15 @@ run_analysis <- function(){
         X_train.txt <- read_table("X_train.txt", col_names = FALSE)
         y_test.txt <- read_table("y_test.txt", col_names = FALSE)
         y_train.txt <- read_table("y_train.txt", col_names = FALSE)
+        features.txt <- read_table("features.txt", col_names = FALSE)
+        
+        
+        # Next, convert the "activities" column of data into human readable
+        # and descriptive activity names
         
         
         
-#       Next, we convert the "activities" column of data into human readable
-#       and descriptive activity names
-        
-#       ### The following line of code completes "part 3" of the assignemt: Use
-        ### descriptive activity names to name the activities in the data set ###
+        ### STEP 3: Use descriptive activity names to name the activities in the data set ###
         
         y_test.txt$X1 <- as.factor(y_test.txt$X1) %>% 
                 gsub("1","walking",.) %>%
@@ -49,8 +59,8 @@ run_analysis <- function(){
                 gsub("6","laying",.) 
         
         
-#         Begin to combine the tidy data frames together, giving them descriptive
-#         column names that are human readable
+        # Begin to combine the data frames together, giving them descriptive
+        # column names that are human readable
          
          z_y_test_train_stack <- bind_rows(y_test.txt,y_train.txt)
          names(z_y_test_train_stack) <- c("activityname") 
@@ -62,35 +72,24 @@ run_analysis <- function(){
          
          z_x_test_train_stack <- bind_rows(X_test.txt,X_train.txt)
         
+        # continue making the feature data Tidy
         
-        
-#       Import the feature names
-        
-        features.txt <- read_table("C:/Users/JJ/Documents/coursera/data/UCI_HAR_Dataset/features.txt", col_names = FALSE)
-        
-         
-#       continue making the feature data Tidy
-        
-#       Make all the characters lowercase
-#       Note: using sapply() was critical here in order to keep the data
-#       type "data.frame" otherwise tolower() would have coerced it to 
-#       "character"
+        # Make all the characters lowercase
+        # Note: using sapply() was critical here in order to keep the data
+        # type "data.frame" otherwise tolower() would have coerced it to 
+        # "character"
         
         features.txt_AllLower <- sapply(features.txt, tolower) 
                                  
         
-#       Begin making the feature names human readable
+        # Begin making the feature names human readable
         
         features.txt_AllLower_1 <- sub("t","time", features.txt_AllLower)
         
-#       Remove all special characters from the feature names, making it 
-#       Tidy "(" "." "," ")" etc. Continue making the feature data set Tidy by 
-#       giving the features unique and descriptive names that are fully human 
-#       readable
-        
-        
-        ### The folowing line of code completes "part 4" of the assignment:
-        ### Appropriately label the data set with descriptive variable names ###
+        # Remove all special characters from the feature names, making it 
+        # Tidy "(" "." "," ")" etc. Continue making the feature data set Tidy by 
+        # giving the features unique and descriptive names that are fully human 
+        # readable
         
         features.txt_AllLowerTidy <- features.txt_AllLower_1 %>%
                 gsub(",","",.) %>% 
@@ -98,6 +97,11 @@ run_analysis <- function(){
                 gsub("\\(","",.) %>%
                 gsub("\\)","",.) %>%
                 gsub(" ","",.) %>%
+               
+        
+                        
+        ### STEP 4: Appropriately label the data set with descriptive variable names ###
+                
                 gsub("acc","acceleration",.) %>%
                 gsub("gyro","gyroscope",.) %>%
                 gsub("mag","magnitude",.) %>%
@@ -113,69 +117,63 @@ run_analysis <- function(){
                 gsub("entropy","signalentropy",.) %>%
                 gsub("arcoeff","autoregressioncoefficients",.)  
                 
-                
-                
-                
-#       Now that all the features have descriptive and unique variable names,
-#       we can "clip" them on to the main observational data frame and use
-#       them as column (feature) names
+        # Now that all the features have descriptive and unique variable names,
+        # we can "clip" them on to the main observational data frame and use
+        # them as column (feature) names
         
         colnames(z_x_test_train_stack) <- c(features.txt_AllLowerTidy)
         
-        
-#       "Clip" the participant number and activity name data frames together
+        # Bind the participant number and activity name data frames together
         
         participant_activity <- bind_cols(z_subject_test_train_stack,z_y_test_train_stack)
         
+        # Bind the participant number and activity name data frame to the
+        # main data frame that contains all of the observational data.
         
-#       "Clip" the participant number and activity name data frame to the
-#       main data frame that contains all of the observational data.
         
         
-        ### The following line of code completes "part 1" of the assignment: Merge
-        ### the training and test sets to create one data set ###
+        ### STEP 1: Merge the training and test sets to create one data set ###
        
         participant_activity_obs <- bind_cols(participant_activity, z_x_test_train_stack)
         
         
-#       Convert the column "participantnumber" to the Factor data type for later analysis
+        # Convert the column "participantnumber" to the Factor data type for later analysis
          
         participant_activity_obs$participantnumber <- as.factor(participant_activity_obs$participantnumber) 
         
-        
-        
-        ### The following line of code completes "part 2" of the assignment:
-        ### extract only the measurements on the mean and standard deviation 
-        ### for each measurement ###
+        # Begin extracting only the columns that are needed for the analysis  
         
         participant_activity_obs_avg_sd_selected <- participant_activity_obs %>%
-                select(contains("participantnumber"), contains("activityname"), 
-                       contains("mean"), contains("standarddeviation"))
+                select(contains("participantnumber"), contains("activityname"),
+                       
         
         
-#       Group the data set by columns "participantnumber" and "activity" 
+        ### STEP 2: extract only the measurements on the mean and standard deviation 
+        ### for each measurement ###
+        
+                contains("mean"), contains("standarddeviation"))
+        
+        
+        # To add to the tidyness, group the data set by columns "participantnumber" and "activity" 
         
         participant_activity_obs_avg_sd_selected_grouped <- participant_activity_obs_avg_sd_selected %>%
                arrange(.,participantnumber,activityname) 
         
         
         
-        ### the following lines of code completes "part 5" of the assignment: From
-        ### the data set in step 4, create a second independent tidy data set 
+        ### STEP 5: : From the data set in step 4, create a second independent tidy data set 
         ### with the average of each variable for each activity and each subject ###
-        
         
         participant_activity_obs_avg_sd_selected_grouped1 <- aggregate(.~ participantnumber + activityname ,participant_activity_obs_avg_sd_selected_grouped, mean)
                 
-        
-        
-        write.table(participant_activity_obs_avg_sd_selected_grouped1, file = "tidydataset.txt", sep = "\t", row.names = FALSE)
+        write.table(participant_activity_obs_avg_sd_selected_grouped1, file = "tidydataset.txt", row.names = FALSE)
         
         
         
         
         
 }
+
 
 
 
