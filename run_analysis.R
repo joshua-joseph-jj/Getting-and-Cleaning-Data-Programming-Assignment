@@ -7,15 +7,15 @@ run_analysis <- function(){
         }       
         library("plyr")
         
-        if (!require("tidyverse")){
-                install.packages("tidyverse")
+        if (!require("readr")){
+                install.packages("readr")
         }
-        library("tidyverse")
+        library("readr")
         
-        if (!require("tidyr")){
-                install.packages("tidyr")
+        if (!require("dplyr")){
+                install.packages("dplyr")
         }
-        library("tidyr")
+        library("dplyr")
         
         if (!require("stringr")){
                 install.packages("stringr")
@@ -118,7 +118,7 @@ run_analysis <- function(){
                 gsub("arcoeff","autoregressioncoefficients",.)  
                 
         # Now that all the features have descriptive and unique variable names,
-        # we can "clip" them on to the main observational data frame and use
+        # we can bind them on to the main observational data frame and use
         # them as column (feature) names
         
         colnames(z_x_test_train_stack) <- c(features.txt_AllLowerTidy)
@@ -173,7 +173,6 @@ run_analysis <- function(){
         
         
 }
-
 
 
 
