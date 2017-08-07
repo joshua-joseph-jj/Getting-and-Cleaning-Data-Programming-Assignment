@@ -23,7 +23,7 @@ run_analysis <- function(){
         library("stringr")
         
        
-        # Read in all of the data. 
+        # Read in all of the data. The following files must be located in the working directory 
         
         subject_test.txt <- read_table("subject_test.txt", col_names = FALSE)
         subject_train.txt <- read_table("subject_train.txt", col_names = FALSE)
