@@ -8,151 +8,151 @@ Tidydata.txt conforms to the principles of tidy data because all variables have 
 The names of the original features have been processed to conform to the principles of tidy data. Each feature has its own unique name (including unique feature number, listed at the beginning of each feature name), all abbreviations have been expanded upon ie. “t” = “time”, “acc” = “acceleration”, “f” = fastfouriertransform etc.
 
 ### Complete List of Feature Names
-"1timebodyaccelerationmeanvaluex"
+"timebodyaccelerationmeanvaluex"
 
-"2timebodyaccelerationmeanvaluey"
+"timebodyaccelerationmeanvaluey"
 
-"3timebodyaccelerationmeanvaluez"
+"timebodyaccelerationmeanvaluez"
 
-"41timegravityaccelerationmeanvaluex"
+"timegravityaccelerationmeanvaluex"
 
-"42timegravityaccelerationmeanvaluey"
+"timegravityaccelerationmeanvaluey"
 
-"43timegravityaccelerationmeanvaluez"
+"timegravityaccelerationmeanvaluez"
 
-"81timebodyaccelerationjerkmeanvaluex"
+"timebodyaccelerationjerkmeanvaluex"
 
-"82timebodyaccelerationjerkmeanvaluey"
+"timebodyaccelerationjerkmeanvaluey"
 
-"83timebodyaccelerationjerkmeanvaluez"
+"timebodyaccelerationjerkmeanvaluez"
 
-"121timebodygyroscopemeanvaluex"
+"1timebodygyroscopemeanvaluex"
 
-"122timebodygyroscopemeanvaluey"
+"timebodygyroscopemeanvaluey"
 
-"123timebodygyroscopemeanvaluez"
+"timebodygyroscopemeanvaluez"
 
-"161timebodygyroscopejerkmeanvaluex"
+"timebodygyroscopejerkmeanvaluex"
 
-"162timebodygyroscopejerkmeanvaluey"
+"timebodygyroscopejerkmeanvaluey"
 
-"163timebodygyroscopejerkmeanvaluez"
+"timebodygyroscopejerkmeanvaluez"
 
-"201timebodyaccelerationmagnitudemeanvalue"
+"timebodyaccelerationmagnitudemeanvalue"
 
-"214timegravityaccelerationmagnitudemeanvalue"
+"timegravityaccelerationmagnitudemeanvalue"
 
-"227timebodyaccelerationjerkmagnitudemeanvalue"
+"timebodyaccelerationjerkmagnitudemeanvalue"
 
-"240timebodygyroscopemagnitudemeanvalue"
+"timebodygyroscopemagnitudemeanvalue"
 
-"253timebodygyroscopejerkmagnitudemeanvalue"
+"timebodygyroscopejerkmagnitudemeanvalue"
 
-"266fastfouriertransformbodyaccelerationmeanvaluex"
+"fastfouriertransformbodyaccelerationmeanvaluex"
 
-"267fastfouriertransformbodyaccelerationmeanvaluey"
+"fastfouriertransformbodyaccelerationmeanvaluey"
 
-"268fastfouriertransformbodyaccelerationmeanvaluez"
+"fastfouriertransformbodyaccelerationmeanvaluez"
 
-"294fastfouriertransformbodyaccelerationmeanvaluefreqx"
+"fastfouriertransformbodyaccelerationmeanvaluefreqx"
 
-"295fastfouriertransformbodyaccelerationmeanvaluefreqy"
+"fastfouriertransformbodyaccelerationmeanvaluefreqy"
 
-"296fastfouriertransformbodyaccelerationmeanvaluefreqz"
+"fastfouriertransformbodyaccelerationmeanvaluefreqz"
 
-"345fastfouriertransformbodyaccelerationjerkmeanvaluex"
+"fastfouriertransformbodyaccelerationjerkmeanvaluex"
 
-"346fastfouriertransformbodyaccelerationjerkmeanvaluey"
+"fastfouriertransformbodyaccelerationjerkmeanvaluey"
 
-"347fastfouriertransformbodyaccelerationjerkmeanvaluez"
+"fastfouriertransformbodyaccelerationjerkmeanvaluez"
 
-"373fastfouriertransformbodyaccelerationjerkmeanvaluefreqx"
+"fastfouriertransformbodyaccelerationjerkmeanvaluefreqx"
 
-"374fastfouriertransformbodyaccelerationjerkmeanvaluefreqy"
+"fastfouriertransformbodyaccelerationjerkmeanvaluefreqy"
 
-"375fastfouriertransformbodyaccelerationjerkmeanvaluefreqz"
+"fastfouriertransformbodyaccelerationjerkmeanvaluefreqz"
 
-"424fastfouriertransformbodygyroscopemeanvaluex"
+"fastfouriertransformbodygyroscopemeanvaluex"
 
-"425fastfouriertransformbodygyroscopemeanvaluey"
+"fastfouriertransformbodygyroscopemeanvaluey"
 
-"426fastfouriertransformbodygyroscopemeanvaluez"
+"fastfouriertransformbodygyroscopemeanvaluez"
 
-"452fastfouriertransformbodygyroscopemeanvaluefreqx"
+"fastfouriertransformbodygyroscopemeanvaluefreqx"
 
-"453fastfouriertransformbodygyroscopemeanvaluefreqy"
+"fastfouriertransformbodygyroscopemeanvaluefreqy"
 
-"454fastfouriertransformbodygyroscopemeanvaluefreqz"
+"fastfouriertransformbodygyroscopemeanvaluefreqz"
 
-"503fastfouriertransformbodyaccelerationmagnitudemeanvalue"
+"fastfouriertransformbodyaccelerationmagnitudemeanvalue"
 
-"513fastfouriertransformbodyaccelerationmagnitudemeanvaluefreq"
+"fastfouriertransformbodyaccelerationmagnitudemeanvaluefreq"
 
-"516fastfouriertransformbodyaccelerationjerkmagnitudemeanvalue"
+"fastfouriertransformbodyaccelerationjerkmagnitudemeanvalue"
 
-"526fastfouriertransformbodyaccelerationjerkmagnitudemeanvaluefreq"
+"fastfouriertransformbodyaccelerationjerkmagnitudemeanvaluefreq"
 
-"529fastfouriertransformbodygyroscopemagnitudemeanvalue"
+"fastfouriertransformbodygyroscopemagnitudemeanvalue"
 
-"539fastfouriertransformbodygyroscopemagnitudemeanvaluefreq"
+"fastfouriertransformbodygyroscopemagnitudemeanvaluefreq"
 
-"542fastfouriertransformbodygyroscopejerkmagnitudemeanvalue"
+"fastfouriertransformbodygyroscopejerkmagnitudemeanvalue"
 
-"552fastfouriertransformbodygyroscopejerkmagnitudemeanvaluefreq"
+"fastfouriertransformbodygyroscopejerkmagnitudemeanvaluefreq"
 
-"555angletimebodyaccelerationmeanvaluegravity"
+"angletimebodyaccelerationmeanvaluegravity"
 
-"556angletimebodyaccelerationjerkmeanvaluegravitymeanvalue"
+"angletimebodyaccelerationjerkmeanvaluegravitymeanvalue"
 
-"557angletimebodygyroscopemeanvaluegravitymeanvalue"
+"angletimebodygyroscopemeanvaluegravitymeanvalue"
 
-"558angletimebodygyroscopejerkmeanvaluegravitymeanvalue"
+"angletimebodygyroscopejerkmeanvaluegravitymeanvalue"
 
-"559anglexgravitimeymeanvalue"
+"anglexgravitimeymeanvalue"
 
-"560angleygravitimeymeanvalue"
+"angleygravitimeymeanvalue"
 
-"561anglezgravitimeymeanvalue"
+"anglezgravitimeymeanvalue"
 
-"4timebodyaccelerationstandarddeviationx"
+"timebodyaccelerationstandarddeviationx"
 
-"5timebodyaccelerationstandarddeviationy"
+"timebodyaccelerationstandarddeviationy"
 
-"6timebodyaccelerationstandarddeviationz"
+"timebodyaccelerationstandarddeviationz"
 
-"44timegravityaccelerationstandarddeviationx"
+"timegravityaccelerationstandarddeviationx"
 
-"45timegravityaccelerationstandarddeviationy"
+"timegravityaccelerationstandarddeviationy"
 
-"46timegravityaccelerationstandarddeviationz"
+"timegravityaccelerationstandarddeviationz"
 
-"84timebodyaccelerationjerkstandarddeviationx"
+"timebodyaccelerationjerkstandarddeviationx"
 
-"85timebodyaccelerationjerkstandarddeviationy"
+"timebodyaccelerationjerkstandarddeviationy"
 
-"86timebodyaccelerationjerkstandarddeviationz"
+"timebodyaccelerationjerkstandarddeviationz"
 
-"124timebodygyroscopestandarddeviationx"
+"timebodygyroscopestandarddeviationx"
 
-"125timebodygyroscopestandarddeviationy"
+"timebodygyroscopestandarddeviationy"
 
-"126timebodygyroscopestandarddeviationz"
+"timebodygyroscopestandarddeviationz"
 
-"164timebodygyroscopejerkstandarddeviationx"
+"timebodygyroscopejerkstandarddeviationx"
 
-"165timebodygyroscopejerkstandarddeviationy"
+"timebodygyroscopejerkstandarddeviationy"
 
-"166timebodygyroscopejerkstandarddeviationz"
+"timebodygyroscopejerkstandarddeviationz"
 
-"202timebodyaccelerationmagnitudestandarddeviation"
+"timebodyaccelerationmagnitudestandarddeviation"
 
-"215timegravityaccelerationmagnitudestandarddeviation"
+"timegravityaccelerationmagnitudestandarddeviation"
 
-"228timebodyaccelerationjerkmagnitudestandarddeviation"
+"timebodyaccelerationjerkmagnitudestandarddeviation"
 
-"241timebodygyroscopemagnitudestandarddeviation"
+"timebodygyroscopemagnitudestandarddeviation"
 
-"254timebodygyroscopejerkmagnitudestandarddeviation"
+"timebodygyroscopejerkmagnitudestandarddeviation"
 
 
 
@@ -206,6 +206,7 @@ Please find a line by line explanation of the code below and how the provided da
 - Line 87: 	We begin making the feature names human readable by replacing the first occurrence of the letter “t” in the feature name with the word “time”. This helps the end user of the data to understand what each variable is measuring
 - Lines 94-99:	Continue tidying the data by removing all special characters (commas, parenthesis, colons, underscores, spaces, etc.) We also continue to build out the feature names, making them human readable by fleshing out any abbreviations ie. “acc” turns into “acceleration”, “gyro” turns into ”gyroscope”.  
 - Line 124:	Now that the features have been made tidy and descriptive, each having its own unique name, we are ready to bind it on to the top of the dataset, assigning the feature names as column names to the X_test, X_train combined data set.
+- line 125: Remove any numbers from the character strings of the column names
 - Line 128:	Here we continue binding our data frames together. We call bind_cols() to attach the “participant” column data frame to the “activity” data frame. 
 - Line 135: 	In this line of code we connect all of our data frames together “participantnumber”, ‘activityname”, “featurenames…”
 - Line 142:	Convert column two, “participantnumber”, from numeric into data type factor for later sorting and analysis.
